@@ -1,13 +1,14 @@
 import './App.css';
 import Container from '@mui/material/Container';
 import ItemListContainer from './components/ItemListContainer';
-import SearchAppBar from './components/AppBar';
+import ResponsiveAppBar from './components/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <Container>
-        <ItemListContainer></ItemListContainer>
+      <ResponsiveAppBar />
+      <Container sc={{ marginY: 5 }}>
+        <ItemListContainer titulo="Bienvenido" />
       </Container>
     </div>
   );
