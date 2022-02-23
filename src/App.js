@@ -1,6 +1,6 @@
 import './App.css';
 import Container from '@mui/material/Container';
-import ItemListContainer from './components/ItemListContainer';
+import ItemListContainer from './components/items/ItemListContainer';
 import ResponsiveAppBar from './components/NavBar';
 
 function App() {
