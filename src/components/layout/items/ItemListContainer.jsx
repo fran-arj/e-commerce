@@ -1,8 +1,9 @@
 import { Fragment, useEffect, useState } from 'react';
-import Paper from '@mui/material/Paper';
 import ItemList from './ItemList';
+import Box from '@mui/material/Box';
+
+import LinearProgress from '@mui/material/LinearProgress';
 const dataDB = [
-<<<<<<< HEAD
   {
     ID: '16960',
     title: 'Learn Programming',
@@ -153,29 +154,43 @@ function obtenerDatos() {
     resolve(dataDB);
   });
 }
-//https://www.etnassoft.com/api/v1/get/?any_tags=[html,css,javascript]&order=newest
 
-const ItemListContainer = (props) => {
+const ItemListContainer = () => {
+  //https://openlibra.com/es/page/public-api
+  const url =
+    'https://www.etnassoft.com/api/v1/get/?any_tags=[scrum,javascript]&criteria=most_viewed';
   const [items, setItems] = useState([]);
+
+  const getItems = async () => {
+    try {
+      const resp = await fetch(url);
+      const data = await resp.json();
+      setItems(data);
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+
   useEffect(() => {
-    let requestDatos = obtenerDatos();
-    requestDatos
-      .then((datosResolve) => {
-        setItems(datosResolve);
-      })
-      .catch((errorReject) => {
-        console.log('error', errorReject);
-      })
-      .finally(() => {
-        console.log('finally');
-      });
+    getItems();
   }, []);
   return (
     <Fragment>
-      <Paper elevation={3}>{props.titulo}</Paper>
-      <ItemList items={items} />
+      <Box
+        sx={{
+          width: '100%',
+          height: '100%',
+          p: 2,
+        }}
+      >
+        {items.length ? (
+          <ItemList items={items} />
+        ) : (
+          <LinearProgress color="success" />
+        )}
+      </Box>
     </Fragment>
   );
 };
-export default ItemListContainer;
 
+export default ItemListContainer;

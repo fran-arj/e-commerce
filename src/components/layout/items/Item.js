@@ -6,18 +6,12 @@ function Item({ title, author, cover }) {
   return (
     <div>
       <Paper elevation={3}>
-        <CardMedia
-          component="img"
-          height="140"
-          width="140"
-          image={cover}
-          alt="green iguana"
-        />
+        <CardMedia component="img" image={cover} alt={title} />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="subtitle1" component="div">
             {title}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography variant="subtitle2" color="primary.main">
             {author}
           </Typography>
         </CardContent>

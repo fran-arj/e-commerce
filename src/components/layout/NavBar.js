@@ -11,8 +11,9 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-
-const pages = ['Hombre', 'Mujer', 'Infantil'];
+import logo from '../../assets/logo.png';
+import { CardMedia } from '@mui/material';
+const pages = ['Bases de Datos', 'Desarrollo Web', 'Agilidad'];
 const settings = ['Mi Carrito', 'Mi Perfil', 'Salir'];
 
 const ResponsiveAppBar = () => {
@@ -35,16 +36,22 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ bgcolor: '#427b77', color: '#315956' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          <CardMedia
+            sx={{ width: '5%', height: '5%' }}
+            component="img"
+            image={logo}
+            alt="Libraria"
+          />
           <Typography
             variant="h6"
             noWrap
             component="div"
             sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
           >
-            LOGO e-commerce
+            LIBRARIA
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -89,7 +96,7 @@ const ResponsiveAppBar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}
           >
-            LOGO e-commerce
+            LIBRARIA
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (

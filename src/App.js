@@ -1,16 +1,18 @@
-import './App.css';
+import { CssBaseline } from '@mui/material';
 import Container from '@mui/material/Container';
-import ItemListContainer from './components/items/ItemListContainer';
-import ResponsiveAppBar from './components/NavBar';
+import { Fragment } from 'react';
+import ItemListContainer from './components/layout/items/ItemListContainer';
+import ResponsiveAppBar from './components/layout/NavBar';
 
 function App() {
   return (
-    <div className="App">
+    <Fragment>
       <ResponsiveAppBar />
-      <Container sc={{ marginY: 5 }}>
-        <ItemListContainer titulo="Bienvenido" />
+      <CssBaseline />
+      <Container maxWidth="xl" sc={{ marginY: 5 }}>
+        <ItemListContainer />
       </Container>
-    </div>
+    </Fragment>
   );
 }
 
