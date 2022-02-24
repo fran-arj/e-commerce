@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from 'react';
 import Paper from '@mui/material/Paper';
 import ItemList from './ItemList';
 const dataDB = [
+<<<<<<< HEAD
   {
     ID: '16960',
     title: 'Learn Programming',
@@ -177,3 +178,4 @@ const ItemListContainer = (props) => {
   );
 };
 export default ItemListContainer;
+
