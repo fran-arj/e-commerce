@@ -9,7 +9,7 @@ function App() {
     <Fragment>
       <ResponsiveAppBar />
       <CssBaseline />
-      <Container maxWidth="xl" sc={{ marginY: 5 }}>
+      <Container maxWidth="xl" sx={{ marginY: 7 }}>
         <ItemListContainer />
       </Container>
     </Fragment>

@@ -13,8 +13,9 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../../assets/logo.png';
 import { CardMedia } from '@mui/material';
+import { CartWidget } from './CartWidget';
 const pages = ['Bases de Datos', 'Desarrollo Web', 'Agilidad'];
-const settings = ['Mi Carrito', 'Mi Perfil', 'Salir'];
+const settings = ['Mis Direcciones', 'Mi Perfil', 'Salir'];
 
 const ResponsiveAppBar = () => {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -36,7 +37,7 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ bgcolor: '#427b77', color: '#315956' }}>
+    <AppBar position="fixed" sx={{ bgcolor: '#427b77', color: '#315956' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <CardMedia
@@ -111,6 +112,7 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
+            <CartWidget />
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/assets/avatars/1.jpg" />
