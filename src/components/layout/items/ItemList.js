@@ -18,6 +18,7 @@ function ItemList({ items }) {
         return (
           <Item
             key={item.ID}
+            idItem={item.ID}
             title={item.title}
             author={item.author}
             cover={item.cover}

@@ -1,8 +1,9 @@
 import Paper from '@mui/material/Paper';
 import CardMedia from '@mui/material/CardMedia';
-import { CardContent, Typography } from '@mui/material';
+import { Button, CardContent, Link, Typography } from '@mui/material';
+import AddCircleTwoToneIcon from '@mui/icons-material/AddCircleTwoTone';
 
-function Item({ title, author, cover }) {
+function Item({ idItem, title, author, cover }) {
   return (
     <div>
       <Paper elevation={3}>
@@ -14,6 +15,14 @@ function Item({ title, author, cover }) {
           <Typography variant="subtitle2" color="primary.main">
             {author}
           </Typography>
+          <Link
+            onClick={() => {
+              const link = `https://www.etnassoft.com/api/v1/get/?id=${idItem}`;
+              console.info(link);
+            }}
+          >
+            <AddCircleTwoToneIcon color="primary" />
+          </Link>
         </CardContent>
       </Paper>
     </div>
