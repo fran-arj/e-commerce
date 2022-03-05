@@ -14,7 +14,8 @@ import MenuItem from '@mui/material/MenuItem';
 import logo from '../../assets/logo.png';
 import { CardMedia } from '@mui/material';
 import { CartWidget } from './CartWidget';
-const pages = ['Bases de Datos', 'Desarrollo Web', 'Agilidad'];
+import { Link } from 'react-router-dom';
+const pages = ['Javascript', 'CSS', 'Agilidad'];
 const settings = ['Mis Direcciones', 'Mi Perfil', 'Salir'];
 
 const ResponsiveAppBar = () => {
@@ -40,12 +41,14 @@ const ResponsiveAppBar = () => {
     <AppBar position="fixed" sx={{ bgcolor: '#427b77', color: '#315956' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <CardMedia
-            sx={{ width: '5%', height: '5%' }}
-            component="img"
-            image={logo}
-            alt="Libraria"
-          />
+          <Link component="img" to="/">
+            <CardMedia
+              sx={{ width: '50%', height: '5%' }}
+              component="img"
+              image={logo}
+              alt="Libraria"
+            />
+          </Link>
           <Typography
             variant="h6"
             noWrap
@@ -101,13 +104,15 @@ const ResponsiveAppBar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                {page}
-              </Button>
+              <Link key={page} to={`category/${page}`}>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  * {page}
+                </Button>
+              </Link>
             ))}
           </Box>
 

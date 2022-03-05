@@ -2,11 +2,15 @@ import { Fragment, useEffect, useState } from 'react';
 import ItemList from './ItemList';
 import Box from '@mui/material/Box';
 import LinearProgress from '@mui/material/LinearProgress';
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = () => {
   //https://openlibra.com/es/page/public-api
-  const url =
-    'https://www.etnassoft.com/api/v1/get/?any_tags=[scrum,javascript]&criteria=most_viewed';
+  const { itemCat } = useParams();
+  const parameters = itemCat
+    ? `?keyword=${itemCat}`
+    : '?any_tags=[scrum,javascript]&criteria=most_viewed';
+  const url = `https://www.etnassoft.com/api/v1/get/${parameters}`;
   const [items, setItems] = useState([]);
 
   const getItems = async () => {
@@ -22,6 +26,7 @@ const ItemListContainer = () => {
   useEffect(() => {
     getItems();
   }, []);
+
   return (
     <Fragment>
       <Box
